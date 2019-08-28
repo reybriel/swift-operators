@@ -2,9 +2,8 @@ import Foundation
 
 extension Int8 {
     static postfix func ++ (number: inout Int8) -> Int8 {
-        let old = number
-        number += 1
-        return old
+        defer { number += 1 }
+        return number
     }
     static prefix func ++ (number: inout Int8) -> Int8 {
         number += 1
