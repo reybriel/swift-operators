@@ -1,7 +1,7 @@
 import Foundation
 
-precedencegroup Group { associativity: left }
-infix operator >>>: Group
+precedencegroup ClosureCompositionPrecedence { associativity: left }
+infix operator >>>: ClosureCompositionPrecedence
 
 func >>> <A, B, C>(_ lhs: @escaping (A) -> B, _ rhs: @escaping (B) -> C) -> (A) -> C {
     return { rhs(lhs($0)) }
